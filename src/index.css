@@ -1,1 +1,5 @@
-
+.list-group-item.selected {
+    background-color: #e0e0e0; /* Change this to the desired hover color */
+    cursor: pointer;
+  }
+  
