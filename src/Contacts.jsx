@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, ListGroup, Button, Image, Form } from 'react-bootstrap';
 import './App.css';
 
-const contacts = () => {
+const Contacts = () => {
   const [contacts, setContacts] = useState([]);
   const [chats, setChats] = useState([]);
   const [selectedContact, setSelectedContact] = useState(null);
@@ -10,21 +10,21 @@ const contacts = () => {
 
   useEffect(() => {
     // Fetch contacts from the backend API 
-    // fetch('')
+    fetch('http://127.0.0.1:5555/contacts')
       .then(response => response.json())
       .then(data => setContacts(data))
-      .catch(error => console.error('Error fetching contacts:', error));
+      .catch(error => console.log(error));
 
     // Fetch chats from the backend API
-    fetch('')
+    fetch('http://127.0.0.1:5555/messages')
       .then(response => response.json())
       .then(data => setChats(data))
-      .catch(error => console.error('Error fetching chats:', error));
+      .catch(error => console.log( error));
   }, []);
 
   const handleExit = () => {
     
-    alert('Exiting Chit_chat...');
+    alert('Exiting Chit_chat?');
   };
 
   const handleContactClick = (contact) => {
@@ -67,7 +67,7 @@ const contacts = () => {
                 ))}
           </ListGroup>
 
-          <Form className="p-2" style={{ borderTop: '1px solid #ddd' }}>
+          {/* <Form className="p-2" style={{ borderTop: '1px solid #ddd' }}>
             <Form.Row>
               <Col md={10}>
                 <Form.Control
@@ -83,7 +83,7 @@ const contacts = () => {
                 </Button>
               </Col>
             </Form.Row>
-          </Form>
+          </Form> */}
 
         </Col>
         <Col md={4} className="bg-success text-white p-3">
@@ -116,4 +116,4 @@ const contacts = () => {
   );
 };
 
-export default contacts;
+export default Contacts;
