@@ -1,8 +1,35 @@
 import React from "react";
-import { Container, Row, Col, Form, Button, Image, FormControl, FormGroup, FormCheck } from "react-bootstrap";
+import {
+  Container,
+  Row,
+  Col,
+  Form,
+  Button,
+  Image,
+  FormControl,
+  FormGroup,
+  FormCheck,
+} from "react-bootstrap";
 import { FcGoogle } from "react-icons/fc";
+import { useFormik } from "formik";
+import * as Yup from "yup"
 
 export const Login = () => {
+  {/* Form handling using formik */}
+  const formik = useFormik({
+    validationSchema:Yup.object(). shape({
+      phoneNumber: Yup.string().required('Phone number is required'),
+      password: Yup.string().required('Password is required')
+    }),
+    initialValues: {
+      phoneNumber: "",
+      password: "",
+    },
+    onSubmit: (values) => {
+      console.log(values);
+    },
+  });
+  console.log(formik.errors)
   return (
     <Container fluid className="h-50">
       <Row className="h-100">
@@ -21,31 +48,58 @@ export const Login = () => {
         </Col>
         {/* Right Column */}
         <Col md={6}>
-          <Form className="d-flex flex-column justify-content-between align-items-center p-4">
+          <Form
+            className="d-flex flex-column justify-content-between align-items-center p-4"
+            onSubmit={formik.handleSubmit}
+          >
             <h1 className="text-italic mr-auto">Chit-Chat</h1>
             <FormGroup className="w-100">
               <h3>Login</h3>
               <p>Welcome Back!Please enter your details.</p>
 
-              <FormControl type="tel" placeholder="Phone Number" className="mb-3" />
-              <FormControl type="password" placeholder="Password" className="mb-3" />
+              <FormControl
+                type="tel"
+                placeholder="Phone Number"
+                className="mb-3"
+                required
+                name="phoneNumber"
+                id="phoneNumber"
+                onChange={formik.handleChange}
+                value={formik.values.phoneNumber}
+              />
+              <FormControl
+                type="password"
+                placeholder="Password"
+                className="mb-3"
+                required
+                name="password"
+                id="password"
+                onChange={formik.handleChange}
+                value={formik.values.password}
+              />
 
               <div className="d-flex justify-content-between align-items-center mb-3">
                 <FormCheck type="checkbox" label="Remember me" />
                 <Button variant="link">Forgot Password?</Button>
               </div>
 
-              <Button variant="dark" className="w-100 my-2">Log in</Button>
-              <Button variant="outline-dark" className="w-100 my-2">Register</Button>
+              <Button type="submit" variant="dark" className="w-100 my-2">
+                Log in
+              </Button>
+              <Button variant="outline-dark" className="w-100 my-2">
+                Register
+              </Button>
 
               <div className="my-4 text-center">
                 <p>or</p>
                 <Button variant="outline-secondary" className="w-100 my-2">
-                  <FcGoogle />  Sign In With Google </Button>
+                  <FcGoogle /> Sign In With Google{" "}
+                </Button>
               </div>
 
               <div className="text-center">
-                <p>New to Chit-Chat?
+                <p>
+                  New to Chit-Chat?
                   <Button variant="link">Create Account</Button>
                 </p>
               </div>
