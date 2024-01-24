@@ -44,17 +44,24 @@ export const Login = () => {
         {/* Left Column */}
         <Col md={6} className="p-0 position-relative">
           <Image
-            src="https://images.unsplash.com/photo-1582298538104-fe2e74c27f59?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            src="https://images.unsplash.com/photo-1675351085230-ab39b2289ff4?q=80&w=1864&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             alt=""
             className="w-100 h-100"
             fluid
           />
-          <div className="position-absolute top-50 start-50 translate-middle text-center text-white">
-            <h1>Your chat, your way.</h1>
-            <p>Connect, laugh, and share with Chit-Chat.</p>
+          <div className="position-absolute" style={{
+      top: '40%',
+      left: '50%',
+      bottom: '70%',
+      transform: 'translate(-50%, -50%)',
+      textAlign: 'center',
+      
+    }}>
+            <h1 style={{ fontSize: '4.5em', color: 'white',fontWeight: 'bold'}}>Your chat, your way.</h1>
+            <p style={{fontSize: '1.1em', color: 'white'}}>Connect, laugh, and share with Chit-Chat.</p>
           </div>
         </Col>
-        {/* Right Column */}
+        {/* Right Column*/}
         <Col md={6}>
           <Form
             className="d-flex flex-column justify-content-between align-items-center p-4"
