@@ -13,8 +13,16 @@ import {
 import { FcGoogle } from "react-icons/fc";
 import { useFormik } from "formik";
 import * as Yup from "yup"
+import {useNavigate} from "react-router-dom"
 
 export const Login = () => {
+  {/* Navigating to register page on clicking Register button */}
+  const navigate= useNavigate()
+
+  const moveToRegister = () => {
+    navigate("/register")
+  }
+
   {/* Form handling using formik */}
   const formik = useFormik({
     validationSchema:Yup.object(). shape({
@@ -86,7 +94,8 @@ export const Login = () => {
               <Button type="submit" variant="dark" className="w-100 my-2">
                 Log in
               </Button>
-              <Button variant="outline-dark" className="w-100 my-2">
+              <Button variant="outline-dark" className="w-100 my-2"
+              onClick={moveToRegister}>
                 Register
               </Button>
 
