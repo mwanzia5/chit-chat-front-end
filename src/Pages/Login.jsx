@@ -16,7 +16,7 @@ import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
 import { BASE_URL } from "../utils";
 
- const Login = () => {
+export const Login = () => {
   {
     /* Navigating to register page on clicking Register button */
   }
@@ -127,7 +127,7 @@ import { BASE_URL } from "../utils";
                 Log in
               </Button>
               <Button
-                variant="outline-dark"
+                variant="outline-light"
                 className="w-100 my-2"
                 onClick={moveToRegister}
               >
@@ -136,7 +136,7 @@ import { BASE_URL } from "../utils";
 
               <div className="my-4 text-center">
                 <p>or</p>
-                <Button variant="outline-secondary" className="w-100 my-2">
+                <Button variant="outline-light" className="w-100 my-2">
                   <FcGoogle /> Sign In With Google{" "}
                 </Button>
               </div>
@@ -156,4 +156,4 @@ import { BASE_URL } from "../utils";
     </Container>
   );
 };
-export default Login;
+export default Login

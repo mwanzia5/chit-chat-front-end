@@ -54,34 +54,7 @@ import { BASE_URL } from "../utils";
     
     <Container fluid className="h-100">
       <Row className="h-100">
-        {/* Image Column */}
-        <Col md={6} className="p-0 position-relative">
-          <Image
-            src="https://images.unsplash.com/photo-1675351085230-ab39b2289ff4?q=80&w=1864&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt=""
-            className="w-100 h-100"
-            fluid
-          />
-          <div
-            className="position-absolute"
-            style={{
-              top: "40%",
-              left: "50%",
-              bottom: "70%",
-              transform: "translate(-50%, -50%)",
-              textAlign: "center",
-            }}
-          >
-            <h1
-              style={{ fontSize: "4.5em", color: "white", fontWeight: "bold" }}
-            >
-              Your chat, your way.
-            </h1>
-            <p style={{ fontSize: "1.1em", color: "white" }}>
-              Connect, laugh, and share with Chit-Chat.
-            </p>
-          </div>
-        </Col>
+       
         {/* Form Column */}
         <Col md={6}>
           <Form
@@ -144,7 +117,7 @@ import { BASE_URL } from "../utils";
               </Button>
 
               <Button
-                variant="outline-dark"
+                variant="outline-light"
                 className="w-100 my-2"
                 onClick={moveToLogin}
               >
@@ -153,7 +126,7 @@ import { BASE_URL } from "../utils";
 
               <div className="my-4 text-center">
                 <p>or</p>
-                <Button variant="outline-secondary" className="w-100 my-2">
+                <Button variant="outline-light" className="w-100 my-2">
                   <FcGoogle /> Sign Up With Google{" "}
                 </Button>
               </div>
@@ -168,6 +141,34 @@ import { BASE_URL } from "../utils";
               </div>
             </FormGroup>
           </Form>
+        </Col>
+         {/* Image Column */}
+         <Col md={6} className="p-0 position-relative">
+          <Image
+            src="https://images.unsplash.com/photo-1675351085230-ab39b2289ff4?q=80&w=1864&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt=""
+            className="w-100 h-100"
+            fluid
+          />
+          <div
+            className="position-absolute"
+            style={{
+              top: "40%",
+              left: "50%",
+              bottom: "70%",
+              transform: "translate(-50%, -50%)",
+              textAlign: "center",
+            }}
+          >
+            <h1
+              style={{ fontSize: "4.5em", color: "white", fontWeight: "bold" }}
+            >
+              Your chat, your way.
+            </h1>
+            <p style={{ fontSize: "1.1em", color: "white" }}>
+              Connect, laugh, and share with Chit-Chat.
+            </p>
+          </div>
         </Col>
       </Row>
     </Container>
