@@ -67,7 +67,7 @@ const Contacts = () => {
                 ))}
           </ListGroup>
 
-          {/* <Form className="p-2" style={{ borderTop: '1px solid #ddd' }}>
+          <Form className="p-2" style={{ borderTop: '1px solid #ddd' }}>
             <Form.Row>
               <Col md={10}>
                 <Form.Control
@@ -83,7 +83,7 @@ const Contacts = () => {
                 </Button>
               </Col>
             </Form.Row>
-          </Form> */}
+          </Form>
 
         </Col>
         <Col md={4} className="bg-success text-white p-3">
