@@ -11,14 +11,14 @@ function App() {
     <div>
       <div>Navigation</div>
 
-      <Routes>
-        <Route path="/" element={<div>Home</div>} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<div>SignUp</div>} />
-        <Route path="/contacts" element={<Contacts />} />
-      </Routes>
-    </div>
-  );
+    <Routes>
+      <Route path="/" element={<>Home</>}/>
+        <Route path="/login" element={<Login/>}/>
+      <Route path="/register" element= {<Signup/>}/>
+      <Route path="/contacts" component={Contacts} />
+    </Routes>
+  </div>
+  )
 }
 
 export default App;
