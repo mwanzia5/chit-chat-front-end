@@ -1,5 +1,92 @@
-.list-group-item.selected {
-    background-color: #e0e0e0; /* Change this to the desired hover color */
-    cursor: pointer;
-  }
-  
+:root {
+  --primary-bg: #2b2d42;
+  --secondary-bg: #8d99ae;
+  --primary-text: #edf2f4;
+  --secondary-text: #ff6f61;
+}
+
+body {
+  background-color: var(--primary-bg);
+  color: var(--primary-text);
+}
+
+.bg-success {
+  background-color: #2c3e50 !important;
+}
+
+.text-white {
+  color: var(--primary-text) !important;
+}
+
+.bg-secondary {
+  background-color: var(--secondary-bg) !important;
+}
+
+.contact-list-item {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.contact-list-item:hover {
+  background-color: #2c3e50 !important;
+}
+
+/* Avatar styles */
+.contact-list-item .avatar {
+  margin-right: 10px;
+}
+
+/* First name styles */
+.contact-list-item .first-name {
+  color: var(--primary-text);
+  font-weight: bold;
+  font-size: 1.2rem;
+  transition: color 0.3s ease-in-out; /* Add transition for smooth color change */
+}
+
+.contact-list-item:hover {
+  background-color: #2c3e50 !important;
+}
+
+.contact-list-item:hover .first-name {
+  color: #000; /* Change the color to black on hover */
+}
+
+/* Avatar styles */
+.contact-list-item .avatar {
+  margin-right: 10px;
+}
+
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.chat-messages {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.chat-message {
+  margin-bottom: 10px;
+}
+
+.chat-input-form {
+  border-top: 1px solid #ddd;
+  padding: 10px;
+}
+
+.mt-3 .btn-danger {
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+
+.mt-3 .btn-danger:hover {
+  background-color: #c82333;
+  border-color: #bd2130;
+}
