@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, ListGroup, Button, Image, Form } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 import './index.css';
 
 const Contacts = () => {
@@ -9,7 +10,7 @@ const Contacts = () => {
   const [newMessage, setNewMessage] = useState('');
 
   useEffect(() => {
-    // Fetch contacts from the backend API 
+    // Fetch contacts from the backend API
     fetch('http://127.0.0.1:5555/contacts')
       .then(response => response.json())
       .then(data => setContacts(data))
@@ -19,20 +20,21 @@ const Contacts = () => {
     fetch('http://127.0.0.1:5555/messages')
       .then(response => response.json())
       .then(data => setChats(data))
-      .catch(error => console.log( error));
+      .catch(error => console.log(error));
   }, []);
 
+  const navigate = useNavigate();
+
   const handleExit = () => {
-    
     alert('Exiting Chit_chat?');
+    navigate('/');
   };
 
-  const handleContactClick = (contact) => {
+  const handleContactClick = contact => {
     setSelectedContact(contact);
   };
 
   const handleSendMessage = () => {
-    
     if (selectedContact) {
       setChats([
         ...chats,
@@ -49,6 +51,26 @@ const Contacts = () => {
   return (
     <Container fluid className="bg-light min-vh-100">
       <Row className="h-100">
+        <Col md={4} className="bg-success text-white p-3">
+          <h3>Contacts</h3>
+          <ListGroup>
+            {contacts.map(contact => (
+              <ListGroup.Item
+                key={contact.id}
+                active={selectedContact && selectedContact.id === contact.id}
+                onClick={() => handleContactClick(contact)}
+                style={{
+                  cursor: 'pointer',
+                  backgroundColor: selectedContact && selectedContact.id === contact.id ? '#28a745' : '',
+                }}
+                className="border-0"
+              >
+                <Image src={`https://i.pravatar.cc/30?u=${contact.id}`} roundedCircle width="30" height="30" className="mr-2" />
+                {contact.name}
+              </ListGroup.Item>
+            ))}
+          </ListGroup>
+        </Col>
         <Col md={8} className="d-flex flex-column bg-white">
           <Row className="bg-secondary text-white p-2 mb-2">
             <Col>
@@ -59,22 +81,22 @@ const Contacts = () => {
           <ListGroup className="overflow-auto flex-grow-1" style={{ padding: '10px', borderBottom: '1px solid #ddd' }}>
             {selectedContact &&
               chats
-                .filter((chat) => chat.userId === selectedContact.id)
-                .map((chat) => (
+                .filter(chat => chat.userId === selectedContact.id)
+                .map(chat => (
                   <ListGroup.Item key={chat.id} className="border-0">
                     <strong>{selectedContact.name}:</strong> {chat.title}
                   </ListGroup.Item>
                 ))}
           </ListGroup>
 
-          {/* <Form className="p-2" style={{ borderTop: '1px solid #ddd' }}>
-            <Form.Row>
+          <Form className="p-2" style={{ borderTop: '1px solid #ddd' }}>
+            <Row>
               <Col md={10}>
                 <Form.Control
                   type="text"
                   placeholder="Type a message..."
                   value={newMessage}
-                  onChange={(e) => setNewMessage(e.target.value)}
+                  onChange={e => setNewMessage(e.target.value)}
                 />
               </Col>
               <Col md={2}>
@@ -82,26 +104,8 @@ const Contacts = () => {
                   Send
                 </Button>
               </Col>
-            </Form.Row>
-          </Form> */}
-
-        </Col>
-        <Col md={4} className="bg-success text-white p-3">
-          <h3>Contacts</h3>
-          <ListGroup>
-            {contacts.map((contact) => (
-              <ListGroup.Item
-                key={contact.id}
-                active={selectedContact && selectedContact.id === contact.id}
-                onClick={() => handleContactClick(contact)}
-                style={{ cursor: 'pointer', backgroundColor: selectedContact && selectedContact.id === contact.id ? '#28a745' : '' }}
-                className="border-0"
-              >
-                <Image src={`https://i.pravatar.cc/30?u=${contact.id}`} roundedCircle width="30" height="30" className="mr-2" />
-                {contact.name}
-              </ListGroup.Item>
-            ))}
-          </ListGroup>
+            </Row>
+          </Form>
         </Col>
       </Row>
 
