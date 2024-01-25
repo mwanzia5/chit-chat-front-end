@@ -13,7 +13,10 @@ const Contacts = () => {
     // Fetch contacts from the backend API
     fetch('http://127.0.0.1:5555/contacts')
       .then(response => response.json())
-      .then(data => setContacts(data))
+      .then(data => {
+        console.log(data); // Log the data to the console
+        setContacts(data);
+      })
       .catch(error => console.log(error));
 
     // Fetch chats from the backend API
@@ -52,60 +55,68 @@ const Contacts = () => {
     <Container fluid className="bg-light min-vh-100">
       <Row className="h-100">
         <Col md={4} className="bg-success text-white p-3">
-          <h3>Contacts</h3>
+          {/* Sidebar with contacts */}
+          <h3>Chit-Chat Contacts</h3>
           <ListGroup>
             {contacts.map(contact => (
               <ListGroup.Item
                 key={contact.id}
                 active={selectedContact && selectedContact.id === contact.id}
                 onClick={() => handleContactClick(contact)}
-                style={{
-                  cursor: 'pointer',
-                  backgroundColor: selectedContact && selectedContact.id === contact.id ? '#28a745' : '',
-                }}
-                className="border-0"
+                className="border-0 contact-list-item"
               >
-                <Image src={`https://i.pravatar.cc/30?u=${contact.id}`} roundedCircle width="30" height="30" className="mr-2" />
-                {contact.name}
+                <Image
+                  src={`https://i.pravatar.cc/30?u=${contact.id}`}
+                  roundedCircle
+                  width="30"
+                  height="30"
+                  className="mr-2 avatar"
+                />
+                <span className="first-name">{contact.first_name}</span>
               </ListGroup.Item>
             ))}
           </ListGroup>
         </Col>
         <Col md={8} className="d-flex flex-column bg-white">
+          {/* Chat area */}
           <Row className="bg-secondary text-white p-2 mb-2">
             <Col>
               <h4>{selectedContact ? selectedContact.name : 'Select a contact'}</h4>
             </Col>
           </Row>
 
-          <ListGroup className="overflow-auto flex-grow-1" style={{ padding: '10px', borderBottom: '1px solid #ddd' }}>
-            {selectedContact &&
-              chats
-                .filter(chat => chat.userId === selectedContact.id)
-                .map(chat => (
-                  <ListGroup.Item key={chat.id} className="border-0">
-                    <strong>{selectedContact.name}:</strong> {chat.title}
-                  </ListGroup.Item>
-                ))}
-          </ListGroup>
+          <div className="chat-container">
+            <div className="chat-messages">
+              {/* Display chat messages */}
+              {selectedContact &&
+                chats
+                  .filter(chat => chat.userId === selectedContact.id)
+                  .map(chat => (
+                    <div key={chat.id} className="chat-message">
+                      <strong>{selectedContact.name}:</strong> {chat.title}
+                    </div>
+                  ))}
+            </div>
 
-          <Form className="p-2" style={{ borderTop: '1px solid #ddd' }}>
-            <Row>
-              <Col md={10}>
-                <Form.Control
-                  type="text"
-                  placeholder="Type a message..."
-                  value={newMessage}
-                  onChange={e => setNewMessage(e.target.value)}
-                />
-              </Col>
-              <Col md={2}>
-                <Button variant="primary" onClick={handleSendMessage}>
-                  Send
-                </Button>
-              </Col>
-            </Row>
-          </Form>
+            {/* Message input form */}
+            <Form className="p-2 chat-input-form">
+              <Row>
+                <Col md={10}>
+                  <Form.Control
+                    type="text"
+                    placeholder="Type a message..."
+                    value={newMessage}
+                    onChange={e => setNewMessage(e.target.value)}
+                  />
+                </Col>
+                <Col md={2}>
+                  <Button variant="primary" onClick={handleSendMessage}>
+                    Send
+                  </Button>
+                </Col>
+              </Row>
+            </Form>
+          </div>
         </Col>
       </Row>
 
