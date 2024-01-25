@@ -16,7 +16,7 @@ import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
 import { BASE_URL } from "../utils";
 
-export const Login = () => {
+ const Login = () => {
   {
     /* Navigating to register page on clicking Register button */
   }
@@ -156,3 +156,4 @@ export const Login = () => {
     </Container>
   );
 };
+export default Login;

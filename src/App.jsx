@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
-
-import { Login } from "./pages/Login";
+import Login from "./Pages/Login";
+import Signup from "./Pages/Signup";
 import Contacts from './Contacts';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -13,8 +13,7 @@ function App() {
 
     <Routes>
       <Route path="/" element={<>Home</>}/>
-  
-      <Route path="/login" element={<Login/>}/>
+        <Route path="/login" element={<Login/>}/>
       <Route path="/register" element= {<>signUp</>}/>
       <Route path="/contacts" component={Contacts} />
     </Routes>
