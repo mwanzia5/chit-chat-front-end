@@ -1,21 +1,16 @@
-import { Route, Routes } from "react-router-dom";
-
-import { Login } from "./pages/Login";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { useState } from 'react'
+import Contacts from './Contacts'
+import './App.css'
 
 function App() {
-  return (
-  <div>
+  return(
+  <>
+  
+ <Contacts/>
 
-  <div>Navigation</div>
-
-    <Routes>
-      <Route path="/" element={<>Home</>}/>
-      <Route path="/login" element={<Login/>}/>
-      <Route path="/register" element= {<>signUp</>}/>
-    </Routes>
-  </div>
+  </>
+  
   )
 }
 
-export default App;
+export default App
