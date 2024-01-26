@@ -40,7 +40,7 @@ export const Login = () => {
     },
     onSubmit: async (values) => {
       try {
-        const res = fetch(`${BASE_URL}/login`, {
+        const res = await fetch(`${BASE_URL}/login`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -48,7 +48,7 @@ export const Login = () => {
           body: JSON.stringify(values)
         });
       } catch (error) {
-        console.log("Unable to login");
+        console.log("Unable to login", error.message);
       }
     },
   });
