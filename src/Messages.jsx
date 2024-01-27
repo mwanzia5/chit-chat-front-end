@@ -40,6 +40,10 @@ setNewMessage('');
     console.log('Implement file attachment logic here');
   };
 
+  const handleDeleteMessage = (id) => {
+    const updatedMessages = messages.filter((message) => message.id !== id);
+    setMessages(updatedMessages);
+  }
   return (
     <Container fluid className="bg-light min-vh-100">
       <Row className="h-100">
@@ -48,7 +52,10 @@ setNewMessage('');
             <div className="chat-messages">
               {messages.map((message) => (
                <div key={message.id} className={`chat-message ${message.fromUser ? 'from-user' : 'from-other'}`}>
-               <strong>{message.fromUser ? 'Bestie:' : '  Me:'}</strong> {message.message}
+               <strong>{message.fromUser ? 'Bestie:' : ' Me:'}</strong> {message.message}
+               <button onClick={() => handleDeleteMessage(message.id)} className="delete-button">
+                    Delete
+                  </button>
                 </div>
               ))}
             </div>

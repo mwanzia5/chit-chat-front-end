@@ -37,7 +37,7 @@ import { BASE_URL } from "../utils";
     },
     onSubmit: async (values) => {
       try {
-        const res = await fetch(`${BASE_URL}/signup`, {
+        const res = await fetch(`${BASE_URL}/users`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -87,7 +87,7 @@ import { BASE_URL } from "../utils";
                 value={formik.values.lastName}
               />
               <FormControl
-                type="tel"
+                type="text"
                 placeholder="Phone Number"
                 className="mb-4"
                 required
@@ -96,6 +96,18 @@ import { BASE_URL } from "../utils";
                 onChange={formik.handleChange}
                 value={formik.values.phoneNumber}
               />
+
+<FormControl
+                type="text"
+                placeholder="Password"
+                className="mb-4"
+                required
+                name="Password"
+                id="password"
+                onChange={formik.handleChange}
+                value={formik.values.password}
+              />
+
               <FormControl
                 type="url"
                 placeholder="Profile Photo URL"

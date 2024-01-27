@@ -31,21 +31,21 @@ export const Login = () => {
   }
   const formik = useFormik({
     validationSchema: Yup.object().shape({
-      phoneNumber: Yup.string().required("Phone number is required"),
+      phone_number: Yup.string().required("Phone number is required"),
       password: Yup.string().required("Password is required"),
     }),
     initialValues: {
-      phoneNumber: "",
+      phone_number: "",
       password: "",
     },
     onSubmit: async (values) => {
       try {
         const res = await fetch(`${BASE_URL}/login`, {
-          method: 'POST',
+          method: "POST",
           headers: {
-            'Content-Type': 'application/json'
+            "Content-Type": "application/json",
           },
-          body: JSON.stringify(values)
+          body: JSON.stringify(values),
         });
       } catch (error) {
         console.log("Unable to login", error.message);
@@ -96,17 +96,17 @@ export const Login = () => {
               <p>Welcome Back!Please enter your details.</p>
 
               <FormControl
-                type="tel"
+                type={"text"}
                 placeholder="Phone Number"
                 className="mb-4"
                 required
-                name="phoneNumber"
-                id="phoneNumber"
+                name="phone_number"
+                id="phone_number"
                 onChange={formik.handleChange}
-                value={formik.values.phoneNumber}
+                value={formik.values.phone_number}
               />
               <FormControl
-                type="password"
+                type={"password"}
                 placeholder="Password"
                 className="mb-3"
                 required
@@ -121,9 +121,12 @@ export const Login = () => {
                 <Button variant="link">Forgot Password?</Button>
               </div>
 
-              <Button type="submit"
-               disabled = {formik.isSubmitting}
-               variant="dark" className="w-100 my-2 mb-4">
+              <Button
+                type="submit"
+                disabled={formik.isSubmitting}
+                variant="dark"
+                className="w-100 my-2 mb-4"
+              >
                 Log in
               </Button>
               <Button
@@ -156,4 +159,4 @@ export const Login = () => {
     </Container>
   );
 };
-export default Login
+export default Login;
