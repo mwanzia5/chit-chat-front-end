@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import {
   Container,
   Row,
@@ -15,7 +15,7 @@ import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
 import { BASE_URL } from "../utils";
 
- const Signup = () => {
+const Signup = () => {
   const navigate = useNavigate();
 
   const moveToLogin = () => {
@@ -27,57 +27,44 @@ import { BASE_URL } from "../utils";
       firstName: Yup.string().required("First name is required"),
       lastName: Yup.string().required("Last name is required"),
       phoneNumber: Yup.string().required("Phone number is required"),
-      password: Yup.string().required("Password is required"),
       profilePhoto: Yup.string().required("Profile photo is required"),
     }),
     initialValues: {
       firstName: "",
       lastName: "",
       phoneNumber: "",
-      password: "",
       profilePhoto: "",
     },
     onSubmit: async (values) => {
       try {
         const res = await fetch(`${BASE_URL}/users`, {
-          method: 'POST',
+          method: "POST",
           headers: {
-            'Content-Type': 'application/json'
+            "Content-Type": "application/json",
           },
-          body: JSON.stringify(values)
+          body: JSON.stringify(values),
         });
-        if (!res.ok) {
-          const errorRes = await res.json();
-          console.error('Signup failed:', errorRes.message);
-          // show an alert to the user incase it fails
-          return;
-        }
-    
-        // Handle success
-        console.log('Signup successful');
-        moveToLogin(); // Navigate to login page or show a success message
-
         // Handle response as needed
       } catch (error) {
-        console.log("Unable to sign up", err);
+        console.log("Unable to sign up");
       }
     },
   });
   return (
-    
     <Container fluid className="h-100">
       <Row className="h-100">
-       
         {/* Form Column */}
         <Col md={6}>
           <Form
             className="d-flex flex-column justify-content-between align-items-center p-4"
             onSubmit={formik.handleSubmit}
           >
-            <h1 className="text-italic mr-auto">Chit-Chat</h1>
+            <h1 className="text-italic mr-auto" style={{ color: "white" }}>
+              Chit-Chat
+            </h1>
             <FormGroup className="w-100">
-              <h3>Sign Up</h3>
-              <p>Create your Chit-Chat account.</p>
+              <h3 style={{ color: "white" }}>Sign Up</h3>
+              <p style={{ color: "white" }}>Create your Chit-Chat account.</p>
 
               <FormControl
                 type="text"
@@ -110,12 +97,12 @@ import { BASE_URL } from "../utils";
                 value={formik.values.phoneNumber}
               />
 
-<FormControl
-                type="password"
+              <FormControl
+                type="text"
                 placeholder="Password"
                 className="mb-4"
                 required
-                name="password"
+                name="Password"
                 id="password"
                 onChange={formik.handleChange}
                 value={formik.values.password}
@@ -141,34 +128,25 @@ import { BASE_URL } from "../utils";
                 Sign Up
               </Button>
 
-              <Button
-                variant="outline-dark"
-                className="w-100 my-2"
-                onClick={moveToLogin}
-              >
-                Log In
+              <Button variant="outline-light" className="w-100 my-2">
+                <FcGoogle /> Sign Up With Google{" "}
               </Button>
 
               <div className="my-4 text-center">
-                <p>or</p>
-                <Button variant="outline-dark" className="w-100 my-2">
-                  <FcGoogle /> Sign Up With Google{" "}
+                <p style={{ color: "white" }}>Already have an account?</p>
+                <Button
+                  onClick={moveToLogin}
+                  variant="outline-light"
+                  className="w-100 my-2"
+                >
+                  Log In
                 </Button>
-              </div>
-
-              <div className="text-center">
-                <p>
-                  Already have an account?
-                  <Button variant="link" onClick={moveToLogin}>
-                    Log In
-                  </Button>
-                </p>
               </div>
             </FormGroup>
           </Form>
         </Col>
-         {/* Image Column */}
-         <Col md={6} className="p-0 position-relative">
+        {/* Image Column */}
+        <Col md={6} className="p-0 position-relative">
           <Image
             src="https://images.unsplash.com/photo-1675351085230-ab39b2289ff4?q=80&w=1864&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             alt=""
@@ -197,7 +175,6 @@ import { BASE_URL } from "../utils";
         </Col>
       </Row>
     </Container>
-
-  )
-}
+  );
+};
 export default Signup;

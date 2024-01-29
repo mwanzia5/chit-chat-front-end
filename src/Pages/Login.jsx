@@ -52,7 +52,7 @@ export const Login = () => {
       }
     },
   });
-  console.log(formik.isSubmitting);
+  console.log(formik.errors);
   return (
     <Container fluid className="h-50">
       <Row className="h-100">
@@ -90,10 +90,14 @@ export const Login = () => {
             className="d-flex flex-column justify-content-between align-items-center p-4"
             onSubmit={formik.handleSubmit}
           >
-            <h1 className="text-italic mr-auto">Chit-Chat</h1>
+            <h1 className="text-italic mr-auto" style={{ color: "white" }}>
+              Chit-Chat
+            </h1>
             <FormGroup className="w-100">
-              <h3>Login</h3>
-              <p>Welcome Back!Please enter your details.</p>
+              <h3 style={{ color: "white" }}>Login</h3>
+              <p style={{ color: "white" }}>
+                Welcome Back!Please enter your details.
+              </p>
 
               <FormControl
                 type={"text"}
@@ -117,8 +121,12 @@ export const Login = () => {
               />
 
               <div className="d-flex justify-content-between align-items-center mb-4">
-                <FormCheck type="checkbox" label="Remember me" />
-                <Button variant="link">Forgot Password?</Button>
+                <FormCheck
+                  type="checkbox"
+                  label="Remember me"
+                  style={{ color: "white" }}
+                />
+                <Button variant="light">Forgot Password?</Button>
               </div>
 
               <Button
@@ -129,26 +137,22 @@ export const Login = () => {
               >
                 Log in
               </Button>
-              <Button
-                variant="outline-dark"
-                className="w-100 my-2"
-                onClick={moveToRegister}
-              >
-                Register
-              </Button>
 
               <div className="my-4 text-center">
-                <p>or</p>
-                <Button variant="outline-dark" className="w-100 my-2">
+                <Button variant="outline-light" className="w-100 my-2">
                   <FcGoogle /> Sign In With Google{" "}
                 </Button>
               </div>
 
               <div className="text-center">
-                <p>
+                <p style={{ color: "white" }}>
                   New to Chit-Chat?
-                  <Button variant="link" onClick={moveToRegister}>
-                    Create Account
+                  <Button
+                    variant="outline-light"
+                    className="w-100 my-2"
+                    onClick={moveToRegister}
+                  >
+                    Create account
                   </Button>
                 </p>
               </div>
