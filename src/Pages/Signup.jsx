@@ -27,12 +27,14 @@ import { BASE_URL } from "../utils";
       firstName: Yup.string().required("First name is required"),
       lastName: Yup.string().required("Last name is required"),
       phoneNumber: Yup.string().required("Phone number is required"),
+      password: Yup.string().required("Password is required"),
       profilePhoto: Yup.string().required("Profile photo is required"),
     }),
     initialValues: {
       firstName: "",
       lastName: "",
       phoneNumber: "",
+      password: "",
       profilePhoto: "",
     },
     onSubmit: async (values) => {
@@ -44,9 +46,20 @@ import { BASE_URL } from "../utils";
           },
           body: JSON.stringify(values)
         });
+        if (!res.ok) {
+          const errorRes = await res.json();
+          console.error('Signup failed:', errorRes.message);
+          // show an alert to the user incase it fails
+          return;
+        }
+    
+        // Handle success
+        console.log('Signup successful');
+        moveToLogin(); // Navigate to login page or show a success message
+
         // Handle response as needed
       } catch (error) {
-        console.log("Unable to sign up");
+        console.log("Unable to sign up", err);
       }
     },
   });
@@ -98,11 +111,11 @@ import { BASE_URL } from "../utils";
               />
 
 <FormControl
-                type="text"
+                type="password"
                 placeholder="Password"
                 className="mb-4"
                 required
-                name="Password"
+                name="password"
                 id="password"
                 onChange={formik.handleChange}
                 value={formik.values.password}

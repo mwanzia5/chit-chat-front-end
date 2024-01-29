@@ -52,7 +52,7 @@ export const Login = () => {
       }
     },
   });
-  console.log(formik.errors);
+  console.log(formik.isSubmitting);
   return (
     <Container fluid className="h-50">
       <Row className="h-100">
