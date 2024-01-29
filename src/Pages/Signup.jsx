@@ -124,6 +124,7 @@ const Signup = () => {
                 disabled={formik.isSubmitting}
                 variant="dark"
                 className="w-100 my-2 mb-4"
+
               >
                 Sign Up
               </Button>

@@ -76,7 +76,7 @@ const Contacts = () => {
 
       <Row className="h-100">
         <Col md={4} className="bg-success text-white p-3">
-          <h3>
+          <h3 style={{ color: "white" }}>
             Chit-Chat Contacts{" "}
             <span className="ml-2">
               <Button variant="light" onClick={handleAddContact}>
