@@ -1,14 +1,14 @@
 :root {
-  --primary-bg: #dcf2f1; /* Color from the palette */
-  --secondary-bg: #7fc7d9; /* Color from the palette */
-  --navbar-bg: #365486; /* Color from the palette */
-  --primary-text: #365486; /* Color from the palette */
-  --secondary-text: #365486; /* Color from the palette */
+  --primary-bg: #dcf2f1; 
+  --secondary-bg: #7fc7d9; 
+  --navbar-bg: #365486; 
+  --primary-text: #365486; 
+  --secondary-text: #365486; 
   --dark-font-color: #333;
 }
 
 body {
-  background-color: var(--primary-bg);
+  background-color: var(--primary-bg); 
   color: var(--primary-text);
 }
 

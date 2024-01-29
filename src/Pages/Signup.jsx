@@ -129,7 +129,7 @@ import { BASE_URL } from "../utils";
               </Button>
 
               <Button
-                variant="outline-light"
+                variant="outline-dark"
                 className="w-100 my-2"
                 onClick={moveToLogin}
               >
@@ -138,7 +138,7 @@ import { BASE_URL } from "../utils";
 
               <div className="my-4 text-center">
                 <p>or</p>
-                <Button variant="outline-light" className="w-100 my-2">
+                <Button variant="outline-dark" className="w-100 my-2">
                   <FcGoogle /> Sign Up With Google{" "}
                 </Button>
               </div>
