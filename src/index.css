@@ -17,7 +17,7 @@ body {
 }
 
 .bg-success {
-  background-color: #dcf2f1 !important;
+  background-color: #365486 !important;
 }
 
 .text-white {
@@ -58,12 +58,12 @@ body {
   display: flex;
   overflow-X: auto;
   flex-direction: column;
-  height: auto;
+  height: 700px;
 }
 
 .chat-messages {
   flex-grow: 1;
-  width: fit-content;
+  width: 100%;
   overflow-y: auto;
   /* padding: 10px; */
   border-bottom: 1px solid #ddd;
@@ -75,14 +75,14 @@ body {
 }
 
 .chat-message.from-user {
-  background-color: #54860f; /* Color from the palette */
+  background-color: #D9EDBF; /* Color from the palette */
   border-radius: 20px;
   padding: 6px;
   float: left;
 }
 
 .chat-message.from-other {
-  background-color: #365486; /* Color from the palette */
+  background-color: #7fc7d9; /* Color from the palette */
   border-radius: 20px;
   padding: 6px;
   float: right;
@@ -91,6 +91,7 @@ body {
 .chat-input-form {
   border-top: 1px solid #ddd;
   padding: 10px;
+  margin-top: auto;
 }
 
 .mt-3 .btn-danger {

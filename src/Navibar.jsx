@@ -6,7 +6,7 @@ const Navibar = () => {
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
       <Container>
-        <LinkContainer to="/login">
+        <LinkContainer to="/">
           <Navbar.Brand>Chit-Chat</Navbar.Brand>
         </LinkContainer>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
