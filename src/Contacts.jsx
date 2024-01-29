@@ -1,5 +1,3 @@
-// Contacts.js
-
 import React, { useState, useEffect } from "react";
 import {
   Container,
@@ -12,9 +10,7 @@ import {
 } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { FaSignOutAlt } from "react-icons/fa";
-// import Users from './Users';
 import Messages from "./Messages";
-// import Navbar from "./Navbar";
 import "./index.css";
 
 const Contacts = () => {
