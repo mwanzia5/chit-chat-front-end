@@ -39,7 +39,7 @@ const Signup = () => {
     },
     onSubmit: async (values) => {
       try {
-        const res = await fetch(`${BASE_URL}/users`, {
+        const res = await fetch(`${BASE_URL}/signup`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
