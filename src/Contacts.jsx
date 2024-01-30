@@ -42,7 +42,7 @@ const Contacts = () => {
 
   const handleExit = () => {
     if (window.confirm("Exiting Chit_chat?")) {
-      navigate("/login");
+      navigate("/");
     }
   };
 
