@@ -89,6 +89,7 @@ body {
 .chat-message.from-other {
   background-color: #7fc7d9; /* Color from the palette */
   border-radius: 20px;
+  width: 70%;
   padding: 10px;
   float: right;
   max-width: 70%;
