@@ -54,19 +54,23 @@ body {
   color: #365486;
 }
 
+
 .chat-container {
   display: flex;
   overflow-X: auto;
   flex-direction: column;
   height: 700px;
+  padding: 0px;
 }
 
 .chat-messages {
   flex-grow: 1;
   width: 100%;
+  height: 100%;
   overflow-y: auto;
   /* padding: 10px; */
   border-bottom: 1px solid #ddd;
+  
 }
 
 .chat-message {
@@ -77,15 +81,18 @@ body {
 .chat-message.from-user {
   background-color: #D9EDBF; /* Color from the palette */
   border-radius: 20px;
-  padding: 6px;
+  padding: 10px;
   float: left;
+  max-width: 70%;
 }
 
 .chat-message.from-other {
   background-color: #7fc7d9; /* Color from the palette */
   border-radius: 20px;
-  padding: 6px;
+  padding: 10px;
   float: right;
+  max-width: 70%;
+
 }
 
 .chat-input-form {
@@ -106,4 +113,47 @@ body {
 
 .navbar {
   background-color: var(--navbar-bg);
+}
+
+.bg-success text-white p-3{
+  /* position: absolute; */
+  height: 100%;
+}
+
+.bg-light min-vh-100{
+  height: 100%;
+}
+
+.bg-success text-white p-3 col-md-17{
+  height: 100%;
+  position: absolute;
+}
+
+.bg-light min-vh-100{
+  height: 100%;
+  position: fixed;
+}
+
+
+.carousel slide{
+  color: #DCF2F1;
+  text-align: center;
+  margin: auto;
+  width: 33%;
+  height: 100%;
+  background-color: #7fc7d9;
+}
+
+.card-body{
+  background-color: #7fc7d9;
+  text-align: center;
+}
+
+.card-title h5{
+  background-color: #7fc7d9;
+  text-align: center;
+}
+
+.carousel-control-next-icon{
+  color: black;
 }
