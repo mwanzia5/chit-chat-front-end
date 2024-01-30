@@ -24,16 +24,18 @@ const Signup = () => {
 
   const formik = useFormik({
     validationSchema: Yup.object().shape({
-      firstName: Yup.string().required("First name is required"),
-      lastName: Yup.string().required("Last name is required"),
-      phoneNumber: Yup.string().required("Phone number is required"),
-      profilePhoto: Yup.string().required("Profile photo is required"),
+      first_name: Yup.string().required("First name is required"),
+      last_name: Yup.string().required("Last name is required"),
+      phone_number: Yup.string().required("Phone number is required"),
+      password: Yup.string().required("Password is required"),
+      profile_photo: Yup.string().required("Profile photo is required"),
     }),
     initialValues: {
-      firstName: "",
-      lastName: "",
-      phoneNumber: "",
-      profilePhoto: "",
+      first_name: "",
+      last_name: "",
+      phone_number: "",
+      password: "",
+      profile_photo: "",
     },
     onSubmit: async (values) => {
       try {
@@ -71,30 +73,30 @@ const Signup = () => {
                 placeholder="First Name"
                 className="mb-4"
                 required
-                name="firstName"
-                id="firstName"
+                name="first_name"
+                id="first_name"
                 onChange={formik.handleChange}
-                value={formik.values.firstName}
+                value={formik.values.first_name}
               />
               <FormControl
                 type="text"
                 placeholder="Last Name"
                 className="mb-4"
                 required
-                name="lastName"
-                id="lastName"
+                name="last_name"
+                id="last_name"
                 onChange={formik.handleChange}
-                value={formik.values.lastName}
+                value={formik.values.last_name}
               />
               <FormControl
                 type="text"
                 placeholder="Phone Number"
                 className="mb-4"
                 required
-                name="phoneNumber"
-                id="phoneNumber"
+                name="phone_number"
+                id="phone_number"
                 onChange={formik.handleChange}
-                value={formik.values.phoneNumber}
+                value={formik.values.phone_number}
               />
 
               <FormControl
@@ -102,7 +104,7 @@ const Signup = () => {
                 placeholder="Password"
                 className="mb-4"
                 required
-                name="Password"
+                name="password"
                 id="password"
                 onChange={formik.handleChange}
                 value={formik.values.password}
@@ -113,10 +115,10 @@ const Signup = () => {
                 placeholder="Profile Photo URL"
                 className="mb-4"
                 required
-                name="profilePhoto"
-                id="profilePhoto"
+                name="profile_photo"
+                id="profile_photo"
                 onChange={formik.handleChange}
-                value={formik.values.profilePhoto}
+                value={formik.values.profile_photo}
               />
 
               <Button
