@@ -42,6 +42,7 @@ const Contacts = () => {
 
   const handleExit = () => {
     if (window.confirm("Exiting Chit_chat?")) {
+      localStorage.clear()
       navigate("/");
     }
   };
