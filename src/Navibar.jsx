@@ -1,6 +1,6 @@
-import React from 'react';
-import { Navbar, Nav, Container } from 'react-bootstrap';
-import { LinkContainer } from 'react-router-bootstrap';
+import React from "react";
+import { Navbar, Nav, Container } from "react-bootstrap";
+import { LinkContainer } from "react-router-bootstrap";
 
 const Navibar = () => {
   return (
@@ -12,7 +12,7 @@ const Navibar = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-             {/* <LinkContainer to="/login">
+            {/* <LinkContainer to="/login">
               <Nav.Link>Login</Nav.Link>
             </LinkContainer> */}
             <LinkContainer to="/register">
@@ -21,6 +21,9 @@ const Navibar = () => {
             <LinkContainer to="/contacts">
               <Nav.Link>Contacts</Nav.Link>
             </LinkContainer>
+            <LinkContainer to="/status">
+              <Nav.Link>Status</Nav.Link>
+            </LinkContainer>
           </Nav>
         </Navbar.Collapse>
       </Container>
@@ -28,4 +31,4 @@ const Navibar = () => {
   );
 };
 
-export default Navibar;
+export default Navibar;
