@@ -12,7 +12,12 @@ const Messages = () => {
   useEffect(() => {
     const fetchMessages = async () => {
       try {
-        const response = await fetch("http://127.0.0.1:5555/messages");
+        const response = await fetch("http://127.0.0.1:5555/messages", {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.getItem("access_token")}`,
+          },
+        });
         const data = await response.json();
 
         const messagesWithAbout = data.map((message) => ({
@@ -130,10 +135,17 @@ const Messages = () => {
                     variant={isSelectMode ? "warning" : "danger"}
                     onClick={toggleSelectMode}
                   >
-                    {isSelectMode ? "Cancel" : <FaTrash style={{ color: "white" }} />}
+                    {isSelectMode ? (
+                      "Cancel"
+                    ) : (
+                      <FaTrash style={{ color: "white" }} />
+                    )}
                   </Button>
                   {isSelectMode && (
-                    <Button variant="danger" onClick={handleDeleteSelectedMessages}>
+                    <Button
+                      variant="danger"
+                      onClick={handleDeleteSelectedMessages}
+                    >
                       Delete
                     </Button>
                   )}

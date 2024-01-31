@@ -20,16 +20,25 @@ const Contacts = () => {
   const [newMessage, setNewMessage] = useState("");
   const [newContactName, setNewContactName] = useState("");
   const navigate = useNavigate();
-  
 
   useEffect(() => {
     const fetchContactsAndChats = async () => {
       try {
-        const contactsResponse = await fetch("http://127.0.0.1:5555/contacts");
+        const contactsResponse = await fetch("http://127.0.0.1:5555/contacts", {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.getItem("access_token")}`,
+          },
+        });
         const contactsData = await contactsResponse.json();
         setContacts(contactsData);
 
-        const chatsResponse = await fetch("http://127.0.0.1:5555/messages");
+        const chatsResponse = await fetch("http://127.0.0.1:5555/messages", {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.getItem("access_token")}`,
+          },
+        });
         const chatsData = await chatsResponse.json();
         setChats(chatsData);
       } catch (error) {
@@ -42,7 +51,7 @@ const Contacts = () => {
 
   const handleExit = () => {
     if (window.confirm("Exiting Chit_chat?")) {
-      localStorage.clear()
+      localStorage.clear();
       navigate("/");
     }
   };
@@ -64,7 +73,7 @@ const Contacts = () => {
   };
 
   return (
-      <Container fluid className="bg-light min-vh-100">
+    <Container fluid className="bg-light min-vh-100">
       <Navbar bg="success" variant="dark" className="justify-content-between">
         <Navbar.Collapse className="justify-content-end">
           <Navbar.Text>

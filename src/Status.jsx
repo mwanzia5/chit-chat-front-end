@@ -9,7 +9,12 @@ const Status = () => {
   useEffect(() => {
     const fetchStatuses = async () => {
       try {
-        const response = await fetch("http://127.0.0.1:5555/statuses");
+        const response = await fetch("http://127.0.0.1:5555/statuses", {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.getItem("access_token")}`,
+          },
+        });
         const statusData = await response.json();
         setStatuses(statusData);
       } catch (error) {

@@ -50,6 +50,7 @@ export const Login = () => {
         });
         const data= await res.json()
         console.log(data)
+        //store access and refresh tokens in local storage
         localStorage.setItem('access_token', data.access_token)
         localStorage.setItem('refresh_token', data.refresh_token)
 
@@ -62,6 +63,7 @@ export const Login = () => {
           toast.error(data.message)
         }else if (data.status == 'success'){
           toast.success(data.message)
+          //upon a successful login, the user is navigated to the contacts page
           navigate("/contacts")
           // if login is successful, resetform
           resetForm()
