@@ -10,6 +10,7 @@ import {
 } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { FaSignOutAlt } from "react-icons/fa";
+import { toast } from "react-hot-toast";
 import Messages from "./Messages";
 import "./index.css";
 
@@ -53,6 +54,7 @@ const Contacts = () => {
     if (window.confirm("Exiting Chit_chat?")) {
       localStorage.clear();
       navigate("/");
+      toast.success("Logged out");
     }
   };
 
@@ -78,7 +80,7 @@ const Contacts = () => {
         <Navbar.Collapse className="justify-content-end">
           <Navbar.Text>
             <Button variant="danger" onClick={handleExit}>
-              <FaSignOutAlt />
+              Log out <FaSignOutAlt />
             </Button>
           </Navbar.Text>
         </Navbar.Collapse>
