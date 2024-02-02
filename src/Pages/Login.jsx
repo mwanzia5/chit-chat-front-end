@@ -13,7 +13,7 @@ import {
 import { FcGoogle } from "react-icons/fc";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { toast } from 'react-hot-toast'
+import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { BASE_URL } from "../utils";
 
@@ -39,7 +39,7 @@ export const Login = () => {
       phone_number: "",
       password: "",
     },
-    onSubmit: async (values,{resetForm} ) => {
+    onSubmit: async (values, { resetForm }) => {
       try {
         const res = await fetch(`${BASE_URL}/login`, {
           method: "POST",
@@ -48,39 +48,35 @@ export const Login = () => {
           },
           body: JSON.stringify(values),
         });
-        const data= await res.json()
-        console.log(data)
+        const data = await res.json();
+        console.log(data);
         //store access and refresh tokens in local storage
-        localStorage.setItem('access_token', data.access_token)
-        localStorage.setItem('refresh_token', data.refresh_token)
+        localStorage.setItem("access_token", data.access_token);
+        localStorage.setItem("refresh_token", data.refresh_token);
+        localStorage.setItem("sender_id", data.user.id);
 
         if (!res.ok) {
-          throw new Error('Invalid phone number/password');
+          throw new Error("Invalid phone number/password");
         }
-        
-        
-        if (data.statusCode == !200){
-          toast.error(data.message)
-        }else if (data.status == 'success'){
-          toast.success(data.message)
+
+        if (data.statusCode == !200) {
+          toast.error(data.message);
+        } else if (data.status == "success") {
+          toast.success(data.message);
           //upon a successful login, the user is navigated to the contacts page
-          navigate("/contacts")
+          navigate("/chats");
           // if login is successful, resetform
-          resetForm()
+          resetForm();
           //persisting the user once logged in
           // redirecting the user to contacts page
         }
       } catch (error) {
         console.log("Unable to login", error.message);
         toast.error("Login failed: " + error.message);
-
       }
-
-      
     },
   });
   console.log(formik.errors);
-
 
   return (
     <Container fluid className="h-50">

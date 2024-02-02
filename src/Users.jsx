@@ -1,5 +1,3 @@
-// Users.js
-
 import React, { useState } from 'react';
 import { Container, Row, Col, Form, Button, Image, FormControl, FormGroup } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';

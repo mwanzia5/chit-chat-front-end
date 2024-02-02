@@ -1,4 +1,3 @@
-// App.js
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Login from "./Pages/Login";
@@ -18,7 +17,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/register" element={<Signup />} />
-        <Route path="/contacts" element={<Contacts />} />
+        <Route path="/chats" element={<Contacts />} />
         <Route path="/status" element={<Status />} />
       </Routes>
     </>
