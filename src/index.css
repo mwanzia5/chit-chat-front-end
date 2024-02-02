@@ -136,28 +136,26 @@ body {
   position: fixed;
 }
 
-
-.carousel slide{
-  color: #DCF2F1;
-  text-align: center;
+.carousel.slide{
+  justify-content: center;
   margin: auto;
-  /* width: 33%; */
   height: 100%;
+  width: 40%;
   background-color: #7fc7d9;
 }
 
 .card-body{
   background-color: #7fc7d9;
   text-align: center;
-  width: 60%;
+  vertical-align: middle;
+  justify-content: center;
+  width: 90%;
+  height: 360px;
   align-self: center;
+  margin-bottom: 20px;
+  border-radius: 20px;
 }
 
-.card-title h5{
-  background-color: #7fc7d9;
-  text-align: center;
-}
-
-.carousel-control-next-icon{
-  color: black;
+.card-title{
+  align-self: center;
 }

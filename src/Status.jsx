@@ -54,12 +54,8 @@ const Status = () => {
       <Carousel>
         {statuses.map((status) => (
           <Carousel.Item key={status.id}>
-            <Carousel.Caption>
-              <h3>First slide label</h3>
-              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-            </Carousel.Caption>
             <Card>
-              <Card.Title>{`USER:${status.user_id}`}</Card.Title>
+              <Card.Title className="card-title">{`USER:${status.user_id}`}</Card.Title>
               <Card.Body>
                 <h2>{status.status_text}</h2>
               </Card.Body>
