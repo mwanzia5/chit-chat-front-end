@@ -18,8 +18,8 @@ const Navibar = () => {
             <LinkContainer to="/register">
               <Nav.Link>Register</Nav.Link>
             </LinkContainer>
-            <LinkContainer to="/contacts">
-              <Nav.Link>Contacts</Nav.Link>
+            <LinkContainer to="/chats">
+              <Nav.Link>Chats</Nav.Link>
             </LinkContainer>
             <LinkContainer to="/status">
               <Nav.Link>Status</Nav.Link>

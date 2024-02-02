@@ -25,7 +25,7 @@ const Contacts = () => {
   useEffect(() => {
     const fetchContactsAndChats = async () => {
       try {
-        const contactsResponse = await fetch("http://127.0.0.1:5555/contacts", {
+        const contactsResponse = await fetch("http://127.0.0.1:5555/users", {
           headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${localStorage.getItem("access_token")}`,
@@ -60,6 +60,8 @@ const Contacts = () => {
 
   const handleContactClick = (contact) => {
     setSelectedContact(contact);
+    localStorage.removeItem("receiver_id");
+    localStorage.setItem("receiver_id", contact.id);
   };
 
   const handleAddContact = () => {
