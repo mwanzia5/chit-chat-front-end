@@ -64,10 +64,13 @@ function Messages() {
   return (
     <>
       {filteredMessages.map((message) => (
-        <div key={message.id} style={{ color: "white" }}>
-          User {message.sender_id} <br />
+        <div
+          className={
+            message.sender_id == loggedInUserId ? "sender" : "receiver"
+          }
+          key={message.id}
+        >
           {message.message}
-          <hr />
         </div>
       ))}
       <Form className="p-2 chat-input-form">
